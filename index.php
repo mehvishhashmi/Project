@@ -9,7 +9,20 @@ if($action == NULL)
  if($action == "show_login_page")
  {
   include('login.php')
-  }else if($action == 'test_user')
+ }
+ 
+ if($action == "add_item") {
+ if(isset($_POST['item_name'])) {
+ addItem($_COOKIE['userid'], $_POST['name'], $_POST['date'], $_POST['time']);
+ }
+ $result = displayItems($_COOKIE['userid']);
+ include('todo.php');
+ }
+
+ 
+ 
+ 
+ else if($action == 'test_user')
   {
 	    $username = $_POST['reg_uname'];
 	    $password = $_POST['reg_password'];
@@ -53,7 +66,13 @@ if($action == NULL)
 		   }
 		   }
 		  }else if ($action == 'add')
-      {
-
+      
+ if($action == "add_item") {
+ if(isset($_POST['item_name'])) {
+ addItem($_COOKIE['userid'], $_POST['name'], $_POST['date'], $_POST['time']);
  }
+ $result = displayItems($_COOKIE['userid']);
+ include('todo.php');
+ }
+ 
 ?>
