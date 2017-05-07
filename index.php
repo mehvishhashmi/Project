@@ -37,24 +37,7 @@ include('validation1.php');
 }
 }
  
- else if($action == 'test_user')
-  {
-	    $username = $_POST['reg_uname'];
-	    $password = $_POST['reg_password'];
-	    $suc = isUserValid($username,$password);
-	    if($suc == true)
-	    {
-	  
-	  
-	  
-	  $result = getTodoItems($_COOKIE['my_id']);
-	  include('list.php');
-
-
-	    }	   }
-		  }else if ($action == 'add')
-      
- if($action == "add") {
+if($action == "add") {
  if(isset($_POST['item'])) {
  addItem($_COOKIE['userid'], $_POST['name'], $_POST['date'], $_POST['time']);
  }
