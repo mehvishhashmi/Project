@@ -44,5 +44,16 @@ if($action == "add") {
  $result = displayItems($_COOKIE['userid']);
  include('todo.php');
  }
- 
+
+if($action == "edit") {
+if(isset($_POST['nname'])) {
+$id = $_POST['id'];
+$nname = $_POST['nname'];
+$ndate = $_POST['ndate'];
+$ntime = $_POST['ntime'];
+edit($id,$nname,$ndate,$ntime);
+$result = displayItems($_COOKIE['userid']);
+include('todo.php');
+}
+}
 ?>
