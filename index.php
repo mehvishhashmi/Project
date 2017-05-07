@@ -25,7 +25,17 @@ header("Location: index.php");
 }
 }
  
- 
+if($action == "check_user") {
+$uname = filter_input(INPUT_POST,'uname');
+$password = filter_input(INPUT_POST,'password');
+$success = isUserRegistered($uname,$password);
+if($success == true) {
+$result = displayItems($_COOKIE['userid']);
+include('todo.php');
+} else {
+include('validation1.php');
+}
+}
  
  else if($action == 'test_user')
   {
