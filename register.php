@@ -8,8 +8,8 @@
 	<strong> Phone number: </strong> <input type='text' name='phone'value="" /> <br> </br>
 	<strong> Birthday: </strong> <input type='text' name='birthday'/> <br> </br>
 	<strong> Gender: </strong> <input type='text' name='gender'/> <br> </br>
-	 <strong> User Name: </strong> <input type='text' name='reg_uname'/> <br> </br>
-	 <strong> Password: </strong> <input type='text' name='reg_password'/> <br> </br>
+	 <strong> User Name: </strong> <input type='text' name='uname'/> <br> </br>
+	 <strong> Password: </strong> <input type='text' name='password'/> <br> </br>
 	<input type="hidden" name="action" value="register">
 	<br>
 <input type="submit" value="Register" />
