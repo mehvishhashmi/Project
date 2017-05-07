@@ -35,7 +35,13 @@ if($action == NULL)
 	    {
 	     // echo " we want to create a new account";
 	     $name = filter_input(INPUT_POST, 'reg_uname');
-	     if(isset($name))
+		$fname = filter_input (INPUT_POST, 'fname');
+		$lname = filter_input (INPUT_POST, 'lname');
+		$email = filter_input (INPUT_POST, 'email');
+		$phone = filter_input (INPUT_POST, 'phone');
+		$birthday = filter_input (INPUT_POST, 'birthday');
+		$gender = filter_input (INPUT_POST, 'gender');
+		if(isset($name))
 		{
 		 $pass = filter_input(INPUT_POST, 'reg_password');
 		 $exit = createUser($name,$pass);

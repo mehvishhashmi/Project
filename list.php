@@ -16,12 +16,16 @@ echo "<br> <br>";
 <?php endforeach;?>
 	             
    </table>
-    <form method = 'post' action='index.php'>
-        <strong> Description: </strong> <input type='text' name='description'/>
-	<strong> Date: </strong>  <input type = 'date' name='date'/>
-	<strong> Time: </strong> <input type = 'time' name ='time'/>	
-	<input type = 'hidden' name = 'action' value='add'><br>
- 	<input type="submit" value="Add"/>
+ < !---adding div --->
+  <div class = "header">
+  <h2>Add Item</h2>
+  <form method = 'post' action='index.php'>
+  <input type="text" name="description" placeholder="Description..." required>
+  <input type="date" name="date" required>
+  <input type="time" step=1 name="time" required>
+  <input type = 'hidden' name = 'action' value='add'><br>
+  <input type="submit" value="Add" class="todobutton btn2">
   </form>
+
  </body>
  </html>

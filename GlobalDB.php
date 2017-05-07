@@ -18,11 +18,11 @@
 	$statement->closeCursor();
 	return $result;
 	}
-	function createUser($username, $password){
+	function createUser($username, $password, $fname, $lname, $email, $birthday, $gender, $phone){
 	global $db;
 	$query = 'select * from users where username = :name ';
 	$statement = $db->prepare($query);
-	$statement->bindValue(':name',$username);
+i	$statement->bindValue(':name',$username);
 	$statement->execute();
 	$result= $statement->fetchAll();
 	$statement->closeCursor();
@@ -31,11 +31,17 @@
 	{
 	return true;
 	}else{
-	$query = 'insert into users (username,passwordHash)       values
+	$query = 'insert into users (fname,lname, email, birthday, gender,phone, username,passwordHash)       values
 	(:name, :pass)';
 	$statement = $db->prepare($query);
 	$statement->bindValue(':name',$username);
 	$statement->bindValue(':pass',$password);
+	$statement->bindValue(':fname',$lname);
+	$statement->bindValue(':lname',$fname);
+	$statement->bindValue(':email',$email);
+	$statement->bindValue(':birthday',$birthday);
+	$statement->bindValue(':gender',$gender);
+	$statement->bindValue(':phone',$phone);
 	$statement->execute();
 	$statement->closeCursor();
 	return false;
@@ -50,6 +56,12 @@
      $statement = $db->prepare($query);
      $statement->bindValue(':name',$username);
      $statement->bindValue(':pass',$password);
+     $statement->bindValue(':fname',$lname);
+     $statement->bindValue(':lname',$fname);
+     $statement->bindValue(':email',$email);
+     $statement->bindValue(':birthday',$birthday);
+     $statement->bindValue(':gender',$gender);
+     $statement->bindValue(':phone',$phone);
      $statement->execute();
      $result= $statement->fetchAll();
      $statement->closeCursor();
