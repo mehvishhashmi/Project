@@ -38,7 +38,7 @@ include('validation1.php');
 }
  
 if($action == "add") {
- if(isset($_POST['item'])) {
+ if(isset($_POST['name'])) {
  addItem($_COOKIE['userid'], $_POST['name'], $_POST['date'], $_POST['time']);
  }
  $result = displayItems($_COOKIE['userid']);
@@ -63,7 +63,7 @@ $id = $_POST['id'];
 $nname = $_POST['nname'];
 $ndate = $_POST['ndate'];
 $ntime = $_POST['ntime'];
-edit($id,$nname,$ndate,$ntime);
+editItem($id,$nname,$ndate,$ntime);
 $result = displayItems($_COOKIE['userid']);
 include('todo.php');
 }
