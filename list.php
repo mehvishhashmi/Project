@@ -19,7 +19,7 @@ echo "<br> <br>";
     <form method = 'post' action='index.php'>
         <strong> Description: </strong> <input type='text'
          name='description'/><br>
-	<input type = 'hideen' name = 'action' value='add'><br>
+	<input type = 'hidden' name = 'action' value='add'><br>
 	<input type="submit" value="Add"/>
   </form>
  </body>
