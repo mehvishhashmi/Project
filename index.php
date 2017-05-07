@@ -31,7 +31,7 @@ if($action == NULL)
 	    }
 
 
-	   }else if ($action == 'registrar')
+	   }else if ($action == 'register')
 	    {
 	     // echo " we want to create a new account";
 	     $name = filter_input(INPUT_POST, 'reg_uname');
