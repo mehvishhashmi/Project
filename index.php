@@ -11,14 +11,19 @@ if($action == NULL)
   include('login.php')
  }
  
- if($action == "add_item") {
- if(isset($_POST['item_name'])) {
- addItem($_COOKIE['userid'], $_POST['name'], $_POST['date'], $_POST['time']);
- }
- $result = displayItems($_COOKIE['userid']);
- include('todo.php');
- }
-
+if($action == "register") {
+$fname = filter_input(INPUT_POST,'fname');
+$lname = filter_input(INPUT_POST,'lname');
+$uname = filter_input(INPUT_POST,'uname');
+$password = filter_input(INPUT_POST,'password')
+$email = filter_input(INPUT_POST,'email');
+$exit = registerUser($fname,$lname,$uname,$password,$email);
+if($exit == true) {
+include('validation.php');
+} else {
+header("Location: index.php");
+}
+}
  
  
  
@@ -36,39 +41,11 @@ if($action == NULL)
 	  include('list.php');
 
 
-	    }
-	    else{
-	  //  echo "Invalid user name or password!";
-	    
-	     header("Location: badInfo.php");
-	    }
-
-
-	   }else if ($action == 'register')
-	    {
-	     // echo " we want to create a new account";
-	     $name = filter_input(INPUT_POST, 'reg_uname');
-		$fname = filter_input (INPUT_POST, 'fname');
-		$lname = filter_input (INPUT_POST, 'lname');
-		$email = filter_input (INPUT_POST, 'email');
-		$phone = filter_input (INPUT_POST, 'phone');
-		$birthday = filter_input (INPUT_POST, 'birthday');
-		$gender = filter_input (INPUT_POST, 'gender');
-		if(isset($name))
-		{
-		 $pass = filter_input(INPUT_POST, 'reg_password');
-		 $exit = createUser($name,$pass);
-		 if($exit == true)
-		 {
-		  include('user_exit.php');
-		 }else {
-		  header("Location: login.php");
-		   }
-		   }
+	    }	   }
 		  }else if ($action == 'add')
       
- if($action == "add_item") {
- if(isset($_POST['item_name'])) {
+ if($action == "add") {
+ if(isset($_POST['item'])) {
  addItem($_COOKIE['userid'], $_POST['name'], $_POST['date'], $_POST['time']);
  }
  $result = displayItems($_COOKIE['userid']);
