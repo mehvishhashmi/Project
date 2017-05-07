@@ -1,6 +1,6 @@
 <html>
 <body>
-  <h1> this is a register page</h1>
+  <h1> Registeration </h1>
     <form method = 'post' action = 'index.php'>
         <strong> First name: </strong> <input type="text" name='fname' placeholder="first name"/>
 	<br></br>

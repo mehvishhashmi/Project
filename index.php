@@ -8,7 +8,7 @@ if($action == NULL)
 }
  if($action == "show_login_page")
  {
-  include('login.php')
+  include('login.php');
  }
  
 if($action == "register") {
@@ -45,6 +45,18 @@ if($action == "add") {
  include('todo.php');
  }
 
+
+if($action == "deleteitem") {
+if(isset($_POST['id'])) {
+$selected = $_POST['id'];
+deleteItem($_COOKIE['userid'],$selected);
+}
+$result = displayItems($_COOKIE['userid']);
+include('todo.php');
+}
+
+
+
 if($action == "edit") {
 if(isset($_POST['nname'])) {
 $id = $_POST['id'];
@@ -55,5 +67,18 @@ edit($id,$nname,$ndate,$ntime);
 $result = displayItems($_COOKIE['userid']);
 include('todo.php');
 }
+}
+
+if($action == "update") {
+if(isset($_POST['id'])) {
+$itemid = $_POST['id'];
+updateStatus($_COOKIE['userid'],$itemid);
+}
+$result = displayItems($_COOKIE['userid']);
+include('todo.php');
+}
+if($action == "showCompletedItems") {
+$result = showCompletedItems($_COOKIE['userid']);
+include('updatedlist.php');
 }
 ?>
