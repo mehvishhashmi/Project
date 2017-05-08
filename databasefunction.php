@@ -52,7 +52,8 @@ function isUserRegistered($uname,$password) {
   return true;
   } else {
   unset($_COOKIE['login']);
-  setcookie('login',false);								      setcookie('userid',false);
+  setcookie('login',false);
+  setcookie('userid',false);
   setcookie('islogged',false);
   return
   false;
@@ -96,7 +97,7 @@ function edit($id,$nname,$ndate,$ntime) {
 }
 
 
-function deleteItem($user_id,$id) {
+function deleteTask($user_id,$id) {
   global $db;
   $query = 'delete from todo where id = :id and user_id = :userid';
   $statement = $db->prepare($query);
