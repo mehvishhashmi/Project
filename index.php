@@ -20,6 +20,7 @@ else if($action == 'test_user')
   {
   //echo 'Welcome';    
   $result = getTodoItems($_COOKIE['my_id']);
+ // $r1 = getItems2($_COOKIE['my_id']);
   include('list.php');
   }else{
   //echo "Wrong User Name/Password!";
