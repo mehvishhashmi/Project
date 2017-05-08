@@ -28,9 +28,8 @@
 <strong> Gender: </strong> <input type='text'name='gender'/>
 <br> <br>
 <input type="hidden" name="action" value="register">
-
+<br>
 <input type="submit" value="Register" class="btn-register" />
-</form>
 </form>
 </div>
 
