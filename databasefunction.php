@@ -96,3 +96,35 @@ function edit($id,$nname,$ndate,$ntime) {
 }
 
 
+function deleteItem($user_id,$id) {
+  global $db;
+  $query = 'delete from todo where id = :id and user_id = :userid';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':id',$id);
+  $statement->bindValue(':userid',$user_id);
+  $statement->execute();
+  $statement->closeCursor();
+  }
+
+function update($user_id,$id) {
+global $db;
+$query = 'update todo set status=1 where id=:id and user_id=:userid';
+$statement = $db->prepare($query);
+$statement->bindValue(':id',$id);
+$statement->bindValue(':userid',$user_id);
+$statement->execute();
+$statement->closeCursor();
+}
+
+function showCompletedItems($user_id) {
+global $db;
+$query = 'select * from todo where user_id=:userid and status=1';
+$statement = $db->prepare($query);
+$statement->bindValue(':userid',$user_id);
+$statement->execute();
+$result = $statement->fetchAll();
+$statement->closeCursor();
+return $result;
+}
+?>
+
