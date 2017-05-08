@@ -72,8 +72,26 @@ return false;
 }
 }
 
+function deleteTodoItem($user_id,$task_id) {
+global $db;
+$query = 'delete from todos where id=:task_id and user_id = :userid';
+$statement = $db->prepare($query);
+$statement->bindValue(':userid',$user_id);
+$statement->bindValue(':task_id',$task_id);
+$statement->execute();
+$statement->closeCursor();
+}
 
-
-
-
+function
+editTodoItem($task_id,$new_todo_item,$new_date,$new_time) {
+global $db;
+$query = 'update todos set todo_item=:new_todo_item, date=:new_date, time=:new_time where id=:task_id';
+$statement = $db->prepare($query);
+$statement->bindValue(':task_id',$task_id);
+$statement->bindValue(':new_todo_item',$new_todo_item);
+$statement->bindValue(':new_date',$new_date);
+$statement->bindValue(':new_time',$new_time);
+$statement->execute();
+$statement->closeCursor();
+}
 ?>
