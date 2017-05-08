@@ -71,3 +71,16 @@ $statement->bindValue(':time',$time);
 $statement->execute();
 $statement->closeCursor();
 }
+
+function displayItems($user_id) {
+global $db;
+$query = 'select * from todo where user_id= :userid and status=0';
+$statement = $db->prepare($query);
+$statement->bindValue(':userid',$user_id);
+$statement->execute();
+$result = $statement->fetchAll();
+$statement->closeCursor();
+return $result;
+}
+
+
