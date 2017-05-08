@@ -13,13 +13,34 @@ $statement->closeCursor();
 
 function getTodoItems($user_id){
 global $db;
-$query = 'select * from todos where user_id= :userid';
+$query = 'select * from todos where user_id = :userid and status = 0';
 $statement = $db->prepare($query);
 $statement->bindValue(':userid',$user_id);
 $statement->execute();
 $result= $statement->fetchAll();
 $statement->closeCursor();
 return $result;
+}
+
+function getItems2($user_id) {
+global $db;
+$query = 'select * from todos where user_id= :userid and status=1';
+$statement = $db->prepare($query);
+$statement->bindValue(':userid',$user_id);
+$statement->execute();
+$r1 = $statement->fetchAll();
+$statement->closeCursor();
+return $r1;
+}
+
+function updateTask($user_id,$task_id) {
+global $db;
+$query = 'update todos set isdone=1 where id=:task_id and user_id=:userid';
+$statement = $db->prepare($query);
+$statement->bindValue(':task_id',$task_id);
+$statement->bindValue(':userid',$user_id);
+$statement->execute();
+$statement->closeCursor();
 }
 
 function createUser($first_name,$last_name,$email,$username,$password,$phone_number,$birthday,$gender)
