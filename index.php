@@ -1,6 +1,6 @@
 <?php
 require('database.php');
-require('databasefunction.php');
+require('dbfunction.php');
 $action = filter_input(INPUT_POST, "action");
 if($action == NULL)
 {
