@@ -54,38 +54,23 @@ else if($action == 'add')
 
 
 if($action == 'delete_task') {
-if(isset($_POST['id'])) {
-$selected = $_POST['id'];
-deleteTask($_COOKIE['userid'],$selected);
-}
-$result = displayItems($_COOKIE['userid']);
+$item = $_POST['task_id'];
+deleteTodoItem($_COOKIE['my_id'],$item);
+$result = getTodoItems($_COOKIE['my_id']);
 include('list.php');
 }
 
 
 
-if($action == "edit") {
-if(isset($_POST['nname'])) {
-$id = $_POST['id'];
-$nname = $_POST['nname'];
-$ndate = $_POST['ndate'];
-$ntime = $_POST['ntime'];
-edit($id,$nname,$ndate,$ntime);
-$result = displayItems($_COOKIE['userid']);
+if($action == 'edit_task') {
+$task_id = $_POST['task_id'];
+$new_todo_item = $_POST['new_todo_item'];
+$new_date = $_POST['new_date'];
+$new_time = $_POST['new_time'];
+editTodoItem($task_id,$new_todo_item,$new_date,$new_time);
+$result = getTodoItems($_COOKIE['my_id']);
 include('list.php');
-}
 }
 
-if($action == "update") {
-if(isset($_POST['id'])) {
-$itemid = $_POST['id'];
-update($_COOKIE['userid'],$itemid);
-}
-$result = displayItems($_COOKIE['userid']);
-include('list.php');
-}
-if($action == "showCompletedItems") {
-$result = showCompletedItems($_COOKIE['userid']);
-include('updatedlist.php');
-}
+
 ?>
