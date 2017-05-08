@@ -11,6 +11,17 @@ $statement->execute();
 $statement->closeCursor();
 }
 
+function getTodoItems($user_id){
+global $db;
+$query = 'select * from todos where user_id= :userid';
+$statement = $db->prepare($query);
+$statement->bindValue(':userid',$user_id);
+$statement->execute();
+$result= $statement->fetchAll();
+$statement->closeCursor();
+return $result;
+}
+
 function createUser($first_name,$last_name,$email,$username,$password,$phone_number,$birthday,$gender)
 {
 global $db;
