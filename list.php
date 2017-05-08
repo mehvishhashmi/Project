@@ -28,6 +28,7 @@ echo "<br> <br>";
 <input type="submit" value="Edit">
 </form>
 </td>
+
 </tr>  
 <?php endforeach;?>
 </table>
