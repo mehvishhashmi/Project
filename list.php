@@ -7,20 +7,11 @@ echo "<br> <br>";
 ?>
 <html>
 <body>
-<table>
-
-<?php foreach($result as $res):?>
-<tr>
-<td> <?php echo $res['todo_item']; ?>  </td>
-</tr>  
-<?php endforeach;?>
-	             
-   </table>
- < !---adding div --->
+ 
   <div class = "header">
   <h2>Add Item</h2>
   <form method = 'post' action='index.php'>
-  <input type="text" name="description" placeholder="Description..." required>
+  <input type="text" name="name" placeholder="Description..." required>
   <input type="date" name="date" required>
   <input type="time" step=1 name="time" required>
   <input type = 'hidden' name = 'action' value='add'><br>

@@ -42,29 +42,22 @@ text-align:center;
 
 
 <body>
-<div class='container' align="center">
+<div class="container">
+<form method="post" action="index.php">
+<div class="form-input">
+<input type="text" name="uname" placeholder="Enter your name" required>
+<input type="password" name="password" placeholder="Enter your password" required>
+</div>
+<input type="hidden" name="action" value="check_user">
+<input type="submit" value="Login" class="btn-login">
+</form>
 
-<form method = "post" action="list.php" class="login">
-      <div>
-      <label><b>Username</b></label>
-      <input type="text" name="reg_uname" placeholder="Enter Username" required>
-      </div>
-      <div>
-      <label><b>Password</b></label>
-      <input type="password" name="reg_password" placeholder="Enter Password" required>
-      <input type ="hidden" name="action" value="test_user">
-      </div>
-   <div>
-   <button type="submit">Login</button>     
-   </div>
-   </form>
-   <form action="register.php" class="register">
-   <div>
-   <button type="submit">Sign up</button>
-   </div>
-  </form>
- 
- </div>
+<form method="post" action="register.php">
+<div class="form-input">
+<input type="submit" value="Register" class="btn-register">
+</div>
+</form>
+</div>
 
 </body>
 </html>
