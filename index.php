@@ -23,8 +23,8 @@ else if($action == 'test_user')
   include('list.php');
   }else{
   //echo "Wrong User Name/Password!";
- include('validation1.php');
- // header("Location: badInfo.php");
+ //include('validation1.php');
+  header("Location: badInfo.php");
 }
 }else if($action == 'register') {
 

@@ -16,9 +16,9 @@
 <input type="text" name="last_name" placeholder="LAST NAME"/>
 <br> 
 <input type='text' name="email" placeholder="EMAIL ADDRESS"  value=""/>
-<br>
-<!-- <strong> Username: </strong> <input type="text" name="username" value="" />
-<br> <br> -->
+
+<input type="text" name="username" placeholder="USERNAME" value="" />
+<br>  
 <input type='password' name="password" placeholder="PASSWORD" value=""/>
 <br>
 <input type='text' name='phone_number' placeholder="PHONE_NUMBER" value=""/>
