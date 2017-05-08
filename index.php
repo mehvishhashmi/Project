@@ -55,11 +55,13 @@ else if($action == 'add')
 
 
 if($action == 'delete_task') {
-$item_id = $_POST['task_id'];
+$item = $_POST['task_id'];
 deleteTodoItem($_COOKIE['my_id'],$item);
 $result = getTodoItems($_COOKIE['my_id']);
 include('list.php');
 }
+
+
 
 if($action == 'edit_task') {
 $task_id = $_POST['task_id'];
