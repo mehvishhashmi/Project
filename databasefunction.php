@@ -57,4 +57,17 @@ function isUserRegistered($uname,$password) {
   return
   false;
   }
-										    }
+					    
+ }
+
+function add($user_id,$name,$date,$time) {
+global $db;
+$query = 'insert into todo(user_id,name,date,time,status) values(:userid,:name,:date,:time,0)';
+$statement = $db->prepare($query);
+$statement->bindValue(':userid',$user_id);
+$statement->bindValue(':name',$name);
+$statement->bindValue(':date',$date);
+$statement->bindValue(':time',$time);
+$statement->execute();
+$statement->closeCursor();
+}
