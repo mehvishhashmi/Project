@@ -1,17 +1,16 @@
 <html>
 <head>
-<h1>To Do Application</h1>
-<h2> Please Login <h2>
-<link rel="stylesheet" type="text/css" href="login.css">
+<h1 align="center">To Do Application</h1>
+<h2 align="center"> Please Login: <h2>
+<link rel="stylesheet" type="text/css" href="log.css">
 </head>
 
 <body>
 <div class = "overall">
 <form method = "post" action="index.php">
  	<div class="form-input">
-
-<strong>Username:</strong><input type="test" name="username" value=""/><br><br>
-<strong>Password:</strong><input type="password" name="password" value=""/><br><br>
+<input type="text" placeholder="username" name="username" value=""/><br>
+<input type="password" name="password" placeholder="Password" value=""/>
 
 </div>
 <input type ="hidden" name="action" value="test_user"><br>

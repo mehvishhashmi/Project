@@ -39,7 +39,7 @@ if(isset($username)) {
 $password = filter_input(INPUT_POST,'password');
 $exit = createUser($first_name,$last_name,$email,$username,$password,$phone_number,$birthday,$gender); 
 if($exit == true) {
-include('validation1.php');
+include('user_exit.php');
 } else {
 header("Location: index.php");
 }
