@@ -25,44 +25,35 @@ else if($action == 'test_user')
   //echo "Wrong User Name/Password!";
   header("Location: badInfo.php");
 }
-}
-else if($action == "register") {
-echo "qwe";
-$fname = filter_input(INPUT_POST,'fname');
-$lname = filter_input(INPUT_POST,'lname');
+}else if($action == 'register') {
+
+$first_name = filter_input(INPUT_POST,'first_name');
+$last_name = filter_input(INPUT_POST,'last_name');
 $email = filter_input(INPUT_POST,'email');
-$uname = filter_input(INPUT_POST,'uname');
+$username = filter_input(INPUT_POST,'username');
+$phone_number = filter_input(INPUT_POST, 'phone_number');
+$birthday = filter_input(INPUT_POST, 'birthday');
+$gender = filter_input(INPUT_POST, 'gender');
+if(isset($username)) {
 $password = filter_input(INPUT_POST,'password');
-$exit = registerUser($fname,$lname,$email,$uname,$password);
+$exit = createUser($first_name,$last_name,$email,$username,$password,$phone_number,$birthday,$gender); 
 if($exit == true) {
-include('validation.php');
+include('user_exit.php');
 } else {
 header("Location: index.php");
 }
 }
- 
-if($action == "check_user") {
-$uname = filter_input(INPUT_POST,'uname');
-$password = filter_input(INPUT_POST,'password');
-$success = isUserRegistered($uname,$password);
-if($success == true) {
-$result = displayItems($_COOKIE['userid']);
-include('list.php');
-} else {
-include('validation1.php');
 }
+
+else if($action == 'add')
+{
+ addTodoItem($_COOKIE['my_id'],$_POST['todo_item'],$_POST['date'],$_POST['time']);	 
+ $result = getTodoItems($_COOKIE['my_id']);
+ include('list.php'); 
 }
- 
-if($action == "add") {
- if(isset($_POST['name'])) {
- add($_COOKIE['userid'], $_POST['name'], $_POST['date'], $_POST['time']);
- }
- $result = displayItems($_COOKIE['userid']);
- include('list.php');
- }
 
 
-if($action == "delete") {
+if($action == 'delete_task') {
 if(isset($_POST['id'])) {
 $selected = $_POST['id'];
 deleteTask($_COOKIE['userid'],$selected);
