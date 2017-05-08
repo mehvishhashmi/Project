@@ -83,4 +83,16 @@ $statement->closeCursor();
 return $result;
 }
 
+function edit($id,$nname,$ndate,$ntime) {
+  global $db;
+  $query = 'update todo set name= :nname, date= :ndate, time=:ntime where id= :userid';
+  $statement = $db->prepare($query);
+  $statement->bindValue(':nname',$nname);
+  $statement->bindValue(':ndate',$ndate);
+  $statement->bindValue(':ntime',$ntime);
+  $statement->bindValue(':userid',$id);
+  $statement->execute();
+  $statement->closeCursor();
+}
+
 
