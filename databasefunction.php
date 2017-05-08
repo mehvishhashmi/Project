@@ -1,9 +1,8 @@
 <?php
-function
-registerUser($fname,$lname,$uname,$password,$email)
+function registerUser($fname,$lname,$email, $uname,$password)
 {
   global $db;
-  $query = 'select * from user_info where uname =:uname';
+  $query = 'select * from users where uname =:uname';
   $statement = $db->prepare($query);
   $statement->bindValue(':uname',$uname);
   $statement->execute();
@@ -18,14 +17,14 @@ return true;
 }
 
 else {
-$query = 'insert into user_info(fname,lname,uname,password,email) 
-values(:fname,:lname,:uname,:password,:email)';
+$query = 'insert into users(fname,lname,email,uname,password) 
+values(:fname,:lname,:email,:uname,:password)';
 $statement = $db->prepare($query);
 $statement->bindValue(':fname',$fname);
 $statement->bindValue(':lname',$lname);
+$statement->bindValue(':email',$email);
 $statement->bindValue(':uname',$uname);
 $statement->bindValue(':password',$password);
-$statement->bindValue(':email',$email);
 $statement->execute();
 $statement->closeCursor();
 return false;
@@ -34,7 +33,7 @@ return false;
 
 function isUserRegistered($uname,$password) {
   global $db;
-  $query = 'select * from user_info where uname = :uname and password = :password';
+  $query = 'select * from users where uname = :uname and password = :password';
   $statement = $db->prepare($query);
   $statement->bindValue(':uname',$uname);
   $statement->bindValue(':password',$password);
@@ -45,8 +44,8 @@ function isUserRegistered($uname,$password) {
   if($count == 1) {
   setcookie('login',$uname, time()+3600);
   $_COOKIE['login']=$uname;
-  setcookie('userid',$result[0]['id'], time()+3600);
-  $_COOKIE['userid']=$result[0]['id'];
+  setcookie('user_id',$result[0]['id'], time()+3600);
+  $_COOKIE['user_id']=$result[0]['id'];
   setcookie('islogged',true, time()+3600);
   $_COOKIE['islogged']=true;
   return true;
@@ -63,9 +62,9 @@ function isUserRegistered($uname,$password) {
 
 function add($user_id,$name,$date,$time) {
 global $db;
-$query = 'insert into todo(user_id,name,date,time,status) values(:userid,:name,:date,:time,0)';
+$query = 'insert into todos(user_id,name,date,time,status) values(:user_id,:name,:date,:time,0)';
 $statement = $db->prepare($query);
-$statement->bindValue(':userid',$user_id);
+$statement->bindValue(':user_id',$user_id);
 $statement->bindValue(':name',$name);
 $statement->bindValue(':date',$date);
 $statement->bindValue(':time',$time);
@@ -75,9 +74,9 @@ $statement->closeCursor();
 
 function displayItems($user_id) {
 global $db;
-$query = 'select * from todo where user_id= :userid and status=0';
+$query = 'select * from todos where user_id= :user_id and status=0';
 $statement = $db->prepare($query);
-$statement->bindValue(':userid',$user_id);
+$statement->bindValue(':user_id',$user_id);
 $statement->execute();
 $result = $statement->fetchAll();
 $statement->closeCursor();
@@ -86,7 +85,7 @@ return $result;
 
 function edit($id,$nname,$ndate,$ntime) {
   global $db;
-  $query = 'update todo set name= :nname, date= :ndate, time=:ntime where id= :userid';
+  $query = 'update todos set name= :nname, date= :ndate, time=:ntime where id= :user_id';
   $statement = $db->prepare($query);
   $statement->bindValue(':nname',$nname);
   $statement->bindValue(':ndate',$ndate);
@@ -99,20 +98,20 @@ function edit($id,$nname,$ndate,$ntime) {
 
 function deleteTask($user_id,$id) {
   global $db;
-  $query = 'delete from todo where id = :id and user_id = :userid';
+  $query = 'delete from todos where id = :id and user_id = :user_id';
   $statement = $db->prepare($query);
   $statement->bindValue(':id',$id);
-  $statement->bindValue(':userid',$user_id);
+  $statement->bindValue(':user_id',$user_id);
   $statement->execute();
-  $statement->closeCursor();
+ $statement->closeCursor();
   }
 
 function update($user_id,$id) {
 global $db;
-$query = 'update todo set status=1 where id=:id and user_id=:userid';
+$query = 'update todos set status=1 where id=:id and user_id=:user_id';
 $statement = $db->prepare($query);
 $statement->bindValue(':id',$id);
-$statement->bindValue(':userid',$user_id);
+$statement->bindValue(':user_id',$user_id);
 $statement->execute();
 $statement->closeCursor();
 }

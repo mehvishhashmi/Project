@@ -49,12 +49,12 @@ text-align:center;
 <input type="password" name="password" placeholder="Enter your password" required>
 </div>
 <input type="hidden" name="action" value="check_user">
-<input type="submit" value="Login" class="btn-login">
+<input type="submit" value="Login">
 </form>
 
 <form method="post" action="register.php">
 <div class="form-input">
-<input type="submit" value="Register" class="btn-register">
+<input type="submit" value="Register">
 </div>
 </form>
 </div>

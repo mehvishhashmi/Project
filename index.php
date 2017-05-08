@@ -12,12 +12,13 @@ if($action == NULL)
  }
  
 if($action == "register") {
+echo "qwe";
 $fname = filter_input(INPUT_POST,'fname');
 $lname = filter_input(INPUT_POST,'lname');
-$uname = filter_input(INPUT_POST,'uname');
-$password = filter_input(INPUT_POST,'password')
 $email = filter_input(INPUT_POST,'email');
-$exit = registerUser($fname,$lname,$uname,$password,$email);
+$uname = filter_input(INPUT_POST,'uname');
+$password = filter_input(INPUT_POST,'password');
+$exit = registerUser($fname,$lname,$email,$uname,$password);
 if($exit == true) {
 include('validation.php');
 } else {
@@ -31,7 +32,7 @@ $password = filter_input(INPUT_POST,'password');
 $success = isUserRegistered($uname,$password);
 if($success == true) {
 $result = displayItems($_COOKIE['userid']);
-include('todo.php');
+include('list.php');
 } else {
 include('validation1.php');
 }
@@ -42,7 +43,7 @@ if($action == "add") {
  add($_COOKIE['userid'], $_POST['name'], $_POST['date'], $_POST['time']);
  }
  $result = displayItems($_COOKIE['userid']);
- include('todo.php');
+ include('list.php');
  }
 
 
@@ -51,8 +52,8 @@ if(isset($_POST['id'])) {
 $selected = $_POST['id'];
 deleteTask($_COOKIE['userid'],$selected);
 }
-$result = display($_COOKIE['userid']);
-include('todo.php');
+$result = displayItems($_COOKIE['userid']);
+include('list.php');
 }
 
 
@@ -65,7 +66,7 @@ $ndate = $_POST['ndate'];
 $ntime = $_POST['ntime'];
 edit($id,$nname,$ndate,$ntime);
 $result = displayItems($_COOKIE['userid']);
-include('todo.php');
+include('list.php');
 }
 }
 
@@ -75,7 +76,7 @@ $itemid = $_POST['id'];
 update($_COOKIE['userid'],$itemid);
 }
 $result = displayItems($_COOKIE['userid']);
-include('todo.php');
+include('list.php');
 }
 if($action == "showCompletedItems") {
 $result = showCompletedItems($_COOKIE['userid']);
