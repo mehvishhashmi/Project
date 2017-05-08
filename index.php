@@ -10,8 +10,23 @@ if($action == NULL)
  {
   include('login.php');
  }
- 
-if($action == "register") {
+
+else if($action == 'test_user')
+  {
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $suc = isUserValid($username,$password);
+  if($suc == true)
+  {
+  //echo 'Welcome';    
+  $result = getTodoItems($_COOKIE['my_id']);
+  include('list.php');
+  }else{
+  //echo "Wrong User Name/Password!";
+  header("Location: badInfo.php");
+}
+}
+else if($action == "register") {
 echo "qwe";
 $fname = filter_input(INPUT_POST,'fname');
 $lname = filter_input(INPUT_POST,'lname');
