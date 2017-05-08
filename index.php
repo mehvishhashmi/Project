@@ -1,6 +1,6 @@
 <?php
 require('database.php');
-require('GlobalDB.php');
+require('databasefunction.php');
 $action = filter_input(INPUT_POST, "action");
 if($action == NULL)
 {
@@ -30,7 +30,7 @@ $uname = filter_input(INPUT_POST,'uname');
 $password = filter_input(INPUT_POST,'password');
 $success = isUserRegistered($uname,$password);
 if($success == true) {
-$result = displayItems($_COOKIE['userid']);
+$result = display($_COOKIE['userid']);
 include('todo.php');
 } else {
 include('validation1.php');
@@ -39,9 +39,9 @@ include('validation1.php');
  
 if($action == "add") {
  if(isset($_POST['name'])) {
- addItem($_COOKIE['userid'], $_POST['name'], $_POST['date'], $_POST['time']);
+ add($_COOKIE['userid'], $_POST['name'], $_POST['date'], $_POST['time']);
  }
- $result = displayItems($_COOKIE['userid']);
+ $result = display($_COOKIE['userid']);
  include('todo.php');
  }
 
@@ -51,7 +51,7 @@ if(isset($_POST['id'])) {
 $selected = $_POST['id'];
 deleteItem($_COOKIE['userid'],$selected);
 }
-$result = displayItems($_COOKIE['userid']);
+$result = display($_COOKIE['userid']);
 include('todo.php');
 }
 
@@ -63,8 +63,8 @@ $id = $_POST['id'];
 $nname = $_POST['nname'];
 $ndate = $_POST['ndate'];
 $ntime = $_POST['ntime'];
-editItem($id,$nname,$ndate,$ntime);
-$result = displayItems($_COOKIE['userid']);
+edit($id,$nname,$ndate,$ntime);
+$result = display($_COOKIE['userid']);
 include('todo.php');
 }
 }
@@ -72,7 +72,7 @@ include('todo.php');
 if($action == "update") {
 if(isset($_POST['id'])) {
 $itemid = $_POST['id'];
-updateStatus($_COOKIE['userid'],$itemid);
+update($_COOKIE['userid'],$itemid);
 }
 $result = displayItems($_COOKIE['userid']);
 include('todo.php');
