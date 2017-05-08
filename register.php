@@ -8,8 +8,8 @@
 <br> <br>
 <strong> Email address: </strong> <input type='text' name="email" value=""/>
 <br> <br>
-<strong> Username: </strong> <input type="text" name="username" value="" />
-<br> <br>
+<!-- <strong> Username: </strong> <input type="text" name="username" value="" />
+<br> <br> -->
 <strong> Password: </strong> <input type='password' name="password" value=""/>
 <br></br>
 <strong> Phone number: </strong> <input type='text' name='phone_number'value=""/>

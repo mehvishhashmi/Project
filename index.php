@@ -23,7 +23,8 @@ else if($action == 'test_user')
   include('list.php');
   }else{
   //echo "Wrong User Name/Password!";
-  header("Location: badInfo.php");
+ include('validation1.php');
+ // header("Location: badInfo.php");
 }
 }else if($action == 'register') {
 
@@ -38,7 +39,7 @@ if(isset($username)) {
 $password = filter_input(INPUT_POST,'password');
 $exit = createUser($first_name,$last_name,$email,$username,$password,$phone_number,$birthday,$gender); 
 if($exit == true) {
-include('user_exit.php');
+include('validation1.php');
 } else {
 header("Location: index.php");
 }
