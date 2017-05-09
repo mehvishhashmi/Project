@@ -1,5 +1,7 @@
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="table.css">
+
 </head>
 <body>
 <div class="header">
