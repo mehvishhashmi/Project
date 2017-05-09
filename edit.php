@@ -4,8 +4,17 @@
 <html>
 
 <body>
-<h1 align="center"> EDIT YOUR TASK </h1>
 
+<table border=1>
+<tr>
+<td>
+
+<h2 align="center" padding-top: 50px;> EDIT YOUR TASK </h2>
+</td>
+</tr>
+</table>
+<br/>
+<br/>
 <table border=1>
 <thead>
 <th>Task</th>

@@ -11,7 +11,7 @@
 <?php 
 
 echo '<h1 style="text-align:center">TO DO LIST</h2>';
-echo '<h1 style="text-align:center">Welcome :'  .$_COOKIE['login'].'<br/></h1>';
+echo '<h1 style="text-align:center">Welcome:'  .$_COOKIE['login'].'<br/></h1>';
 echo '<h2 style="text-align:center">Below you may find your to-do items<br/>
 <br/> </h2>'; ?>
 <td>
@@ -19,21 +19,20 @@ echo '<h2 style="text-align:center">Below you may find your to-do items<br/>
 </table>
 </div>
 
-<h1 align="center"> ADD A TASK </h1>
+<h2 align="center"> ADD A TASK </h2>
 <table border=1>
 <tr>
 <form method = 'post' action='index.php'>
-<td><strong> Task: </strong> <input type='text' name='todo_item'/></td>
-<td><strong> Date: </strong><input type='date' name='date'/></td>
-<td><strong> Time: </strong><input type='time' name='time'/><br></td>
+<td><strong> Task </strong> <input type='text' name='todo_item'/></td>
+<td><strong> Date </strong><input type='date' name='date'/></td>
+<td><strong> Time </strong><input type='time' name='time'/><br></td>
 <input type = 'hidden' name = 'action' value='add'><br>
 <td><input type="submit" value="Add" class="button"/></td>
 </form>
 </tr>
 </table>
 
-<h1 align="center"> YOUR TASK </h1>
-
+<h2 align="center"> YOUR TASK </h2>
 <table border=1>
 <thead>
 <th>Task</th>
@@ -95,7 +94,7 @@ echo '<h2 style="text-align:center">Below you may find your to-do items<br/>
 -->
 <table border=1>
 <br/>
-<h2 align="center"> COMPELETED TASK </h2>
+<h2 align="center"> COMPLETED TASK </h2>
 <thead>
 <th>Tasks</th>
 <th>Date</th>
