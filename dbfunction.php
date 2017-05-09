@@ -35,7 +35,7 @@ return $r1;
 
 function updateTask($user_id,$task_id) {
 global $db;
-$query = 'update todos set isdone=1 where id=:task_id and user_id=:userid';
+$query = 'update todos set status=1 where id=:task_id and user_id=:userid';
 $statement = $db->prepare($query);
 $statement->bindValue(':task_id',$task_id);
 $statement->bindValue(':userid',$user_id);

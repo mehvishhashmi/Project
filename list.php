@@ -92,8 +92,7 @@ echo '<h2 style="text-align:center">Below you may find your to-do items</h2>';
 <input type= "hidden" name = "task_id" value = " <?php echo $res['id']?>">
 <input type = "hidden" name = "todo_item" value=" <?php echo $res['todo_item']?>">
 <input type = "hidden" name = "date" value = " <?php echo $res['date']?>">
-<input type = "hidden" name = "time" value = " <?php echo
-$res['time']?>">
+<input type = "hidden" name = "time" value = " <?php echo $res['time']?>">
 <input type = "submit" value="Edit">
 </form>
 </td>
@@ -102,7 +101,6 @@ $res['time']?>">
 
 <?php endforeach; ?>
 
-</form>
 </table>
 </body>
 </html>
