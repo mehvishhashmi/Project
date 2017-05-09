@@ -4,6 +4,7 @@
 <html>
 
 <body>
+<h1 align="center"> EDIT YOUR TASK </h1>
 
 <table border=1>
 <thead>
@@ -22,7 +23,9 @@
  <input type="date" name="new_date" value="<?php echo $_POST['date']?>"></td>
  <td> <input type="time" name="new_time" value="<?php echo $_POST['time']?>">
  </td> <input type="hidden" name="action" value="edit_task">
-  <td><input type="submit" value="Edit"></td>
+  <td><input type="submit" value="Edit" class="button"> 
+  <!-- </td://web.njit.edu/~mh449/Project/index.php>
+-->
 </form>
 </body>
 </html>

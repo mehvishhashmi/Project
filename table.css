@@ -1,7 +1,7 @@
 table {
 color: #333; /* Lighten up font color */
 font-family: Helvetica, Arial, sans-serif; /* Nicer font */
-width: 640px;
+width: 1000px;
 border-collapse:
 collapse; border-spacing: 0;
 }
@@ -18,4 +18,15 @@ background: #FAFAFA; /* Lighter grey background */
 text-align: center; /* Center our text */
 }
 
-
+.button{
+margin-top: 0px;
+font-size: 20px;
+width: 120px;
+height: 40px;
+padding: 10px 20px;
+color: #fff;
+border-radius: 10px;
+border: none;
+cursor: pointer;
+background-color: #8878cc;
+}
