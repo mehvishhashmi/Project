@@ -8,24 +8,31 @@
 <table border=1>
 <tr>
 <td>
-<?php 
 
+<?php 
 echo '<h1 style="text-align:center">TO DO LIST</h2>';
 echo '<h1 style="text-align:center">Welcome:'  .$_COOKIE['login'].'<br/></h1>';
 echo '<h2 style="text-align:center">Below you may find your to-do items<br/>
 <br/> </h2>'; ?>
-<td>
 </tr>
+</td>
+
 </table>
 </div>
 
 <h2 align="center"> ADD A TASK </h2>
 <table border=1>
+<thead>
+<th>Task</th>
+<th>Date</th>
+<th>Time</th>
+<th>Add</th>
+</thead>
 <tr>
 <form method = 'post' action='index.php'>
-<td><strong> Task </strong> <input type='text' name='todo_item'/></td>
-<td><strong> Date </strong><input type='date' name='date'/></td>
-<td><strong> Time </strong><input type='time' name='time'/><br></td>
+<td> <input type='text' name='todo_item'/></td>
+<td><input type='date' name='date'/></td>
+<td><input type='time' name='time'/><br></td>
 <input type = 'hidden' name = 'action' value='add'><br>
 <td><input type="submit" value="Add" class="button"/></td>
 </form>
